@@ -39,10 +39,6 @@ export default function App () {
               <Route path="/blogs" element={<Blogs />}>
                 <Route path=":id" element={<BlogPage />} />
               </Route>
-<<<<<<< HEAD
-
-=======
->>>>>>> upstream/main
               <Route path="/auth-test" element={<AuthTest />} />
             </Routes>
           </div>

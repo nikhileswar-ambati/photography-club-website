@@ -219,10 +219,7 @@ const stats = [
         thumbnailColor: "#FFB4A2"
     }
 ]
-<<<<<<< HEAD
-=======
 */
->>>>>>> upstream/main
 
 // Top few blogs
 // Everything is necessary except image

@@ -24,10 +24,7 @@ function ClubUpdates({ events, blogs }) {
     const handleAllEventsClick = () => {
         navigateSmooth(navigate, "/events")
     }
-<<<<<<< HEAD
-=======
     console.log(events);
->>>>>>> upstream/main
 
     return (
         <div>
