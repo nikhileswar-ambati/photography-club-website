@@ -1,60 +1,31 @@
 import { Outlet, useParams } from 'react-router';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Dropdown from '../../components/filtersort/dropdown';
 import EventsThumb from '../../components/events/eventsThumb';
 import ModularTabs from '../../components/modularTabs';
-import { useEffect } from 'react';
-import axios from 'axios';
 
 function Events() {
     const { id } = useParams();
     const [activeTab, setActiveTab] = useState('upcoming');
-    const [eventsToShow, setEventsToShow] = useState([]);
-    const [events, setEvents] = useState([]);
+    const [eventsToShow, setEventsToShow] = useState(events);
 
-    const API="http://localhost:1337/api/events";
-
-    const getEvents = async () =>{
-        try{
-            const res=await axios.get(API);
-
-        console.log(res.data.data);
-        const events=[...res.data.data].sort((a, b) => new Date(b.dateTime) - new Date(a.dateTime));
-        setEvents(events);
-        }
-        catch(err){
-            console.log(err);
-        }
-    }
-    useEffect(() => {
-        getEvents();
-        
-    }, []);
-
-
-    const handleTabClick =  (tabId) => {
-         setActiveTab(tabId);
+    const handleTabClick = (tabId) => {
+        setActiveTab(tabId);
 
         if (tabId === "all") {
-             setEventsToShow(events);
+            setEventsToShow(events);
         } else if (tabId === "upcoming") {
             const upcomingEvents = events.filter(event => new Date(event.dateTime) >= new Date());
-            const sortedUpcomingEvents = [...upcomingEvents].sort((a,b) => new Date(a.dateTime) - new Date(b.dateTime));
-            setEventsToShow(sortedUpcomingEvents);
-        } else if (tabId === "pclub") {
-            const pastEvents = events.filter(event => event.isPClubEvent);
-             setEventsToShow(pastEvents);
-        }
-        else if (tabId === "nitkevents") {
-            const nitkEvents = events.filter(event => !event.isPClubEvent);
-            setEventsToShow(nitkEvents);
+            setEventsToShow(upcomingEvents);
+        } else if (tabId === "past") {
+            const pastEvents = events.filter(event => new Date(event.dateTime) < new Date());
+            setEventsToShow(pastEvents);
         }
     }
 
     useEffect(() => {
         handleTabClick(activeTab);
-    }, [events]);
-   
+    }, []);
 
     if (id) {
         return <Outlet />
@@ -98,7 +69,7 @@ function Events() {
     )
 }
 
-/*const events = [
+const events = [
     {
         id: "incident-24",
         title: "Incident '24",
@@ -136,12 +107,11 @@ function Events() {
         thumbnailColor: "#FFB4A2"
     }
 ]
-*/
+
 const navItems = [
     { id: 'upcoming', label: 'Upcoming' },
     { id: 'all', label: 'All' },
-    { id: 'pclub', label: 'PClub' },
-    {id: 'nitkevents', label: 'NITK Events'},
+    { id: 'past', label: 'Past' },
 ]
 
 
