@@ -16,7 +16,7 @@ import { ThemeProvider } from "./context/ThemeContext";
 import PortfolioLayout from "./pages/portfolio/index";
 import AuthTest from "./components/auth/AuthTest";
 
-export default function App() {
+export default function App () {
   return (
     <div>
       <ThemeProvider>
@@ -32,7 +32,6 @@ export default function App() {
               </Route>
 
               <Route path="/photo-reels" element={<PhotoReels />} />
-
               <Route path="/events" element={<Events />}>
                 <Route path=":id" element={<EventPage />} />
               </Route>
@@ -40,7 +39,10 @@ export default function App() {
               <Route path="/blogs" element={<Blogs />}>
                 <Route path=":id" element={<BlogPage />} />
               </Route>
+<<<<<<< HEAD
 
+=======
+>>>>>>> upstream/main
               <Route path="/auth-test" element={<AuthTest />} />
             </Routes>
           </div>

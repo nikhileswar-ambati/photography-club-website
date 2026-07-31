@@ -24,6 +24,10 @@ function ClubUpdates({ events, blogs }) {
     const handleAllEventsClick = () => {
         navigateSmooth(navigate, "/events")
     }
+<<<<<<< HEAD
+=======
+    console.log(events);
+>>>>>>> upstream/main
 
     return (
         <div>
@@ -116,13 +120,16 @@ function ClubUpdates({ events, blogs }) {
 
 ClubUpdates.propTypes = {
     events: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        title: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired,
+        createdAt: PropTypes.string,
+        updatedAt: PropTypes.string,
+        publishedAt: PropTypes.string,
+        EventId: PropTypes.string.isRequired,
+        EventName: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
-        image: PropTypes.string, // optional
-        thumbnailColor: PropTypes.string.isRequired,
         location: PropTypes.string.isRequired,
         dateTime: PropTypes.string.isRequired,
+        isPClubEvent: PropTypes.bool.isRequired,
     })).isRequired,
     blogs: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.string.isRequired,
