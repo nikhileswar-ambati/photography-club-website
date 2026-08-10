@@ -1,11 +1,15 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import coverImage from "./cover.jpeg";
+import coverImage from "./cover3.jpeg";
 
-function StatCard({ label, value }) {
+function StatCard({ label, value, highlight }) {
   return (
-    <div className="rounded-2xl border border-secondary/20 p-6 text-center">
-      <div className="font-playfair text-4xl md:text-5xl text-primary">
+    <div>
+      <div
+        className={`font-playfair text-3xl md:text-4xl font-semibold ${
+          highlight ? "text-red-500" : "text-primary"
+        }`}
+      >
         {value}
       </div>
 
@@ -19,13 +23,18 @@ function StatCard({ label, value }) {
 StatCard.propTypes = {
   label: PropTypes.string.isRequired,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  highlight: PropTypes.bool,
+};
+
+StatCard.defaultProps = {
+  highlight: false,
 };
 
 const clubStats = [
-  { label: "Years", value: "20+" },
-  { label: "Members", value: "70+" },
-  { label: "Achievements", value: "12+" },
-  { label: "Events", value: "100+" },
+  { label: "Years", value: "20+", highlight: true },
+  { label: "Members", value: "70+", highlight: true },
+  { label: "Achievements", value: "12+", highlight: true },
+  { label: "Events", value: "100+", highlight: true },
 ];
 
 const achievements = [
@@ -99,16 +108,16 @@ function AboutUsPage() {
     : achievements.slice(0, 6);
 
   return (
-    <main className="w-full overflow-hidden">
+    <main>
       {/* Hero */}
       <section
-  className="relative min-h-[350px] md:min-h-[450px] flex items-center justify-center overflow-hidden text-center"
-  style={{
-    backgroundImage: `url(${coverImage})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  }}
->
+        className="relative min-h-[350px] md:min-h-[450px] flex items-center justify-center overflow-hidden text-center"
+        style={{
+          backgroundImage: `url(${coverImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
         <div className="absolute inset-0 bg-black/45" />
 
         <div className="relative z-10 w-full max-w-5xl px-6 sm:px-8 md:px-12">
@@ -117,8 +126,8 @@ function AboutUsPage() {
           </p>
 
           <h1 className="font-playfair text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight mt-5">
-            The magic of moments, 
-            <br/>
+            The magic of moments,
+            <br />
             preserved in pixels.
           </h1>
 
@@ -131,26 +140,30 @@ function AboutUsPage() {
       </section>
 
       <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20">
-
+        {/* Who Are We */}
         <section className="mt-10 md:mt-14">
-          <p className="text-tertiary uppercase text-sm font-semibold tracking-[0.2em]">
+          <p className="text-[#00B9DD] uppercase text-sm font-semibold tracking-[0.2em]">
             Who Are We
           </p>
 
-          <h2 className="font-playfair text-primary text-3xl md:text-4xl lg:text-5xl leading-tight mt-4">
+          <h2 className="font-playfair font-semibold text-primary text-3xl md:text-4xl lg:text-5xl leading-tight mt-4">
             A community built around the lens.
           </h2>
 
           <div className="max-w-5xl mt-8 text-base sm:text-lg leading-7 sm:leading-8 md:leading-9 text-primary font-light">
             <p>
-              Established in <span className="font-medium">2004</span>, the
-              Photography Club of NITK Surathkal is a student-run community
-              dedicated to fostering creativity through photography and visual
-              storytelling. Over the years, the club has grown into one of the
-              institute&apos;s most active creative communities, bringing
-              together students who share a passion for capturing moments,
-              preserving memories, and documenting the vibrant life of the
-              campus.
+              Established in{" "}
+              <span className="font-medium text-[#00B9DD]">2004</span>, the
+              Photography Club of{" "}
+              <span className="font-medium text-[#00B9DD]">
+                NITK Surathkal
+              </span>{" "}
+              is a student-run community dedicated to fostering creativity
+              through photography and visual storytelling. Over the years, the
+              club has grown into one of the institute&apos;s most active
+              creative communities, bringing together students who share a
+              passion for capturing moments, preserving memories, and
+              documenting the vibrant life of the campus.
             </p>
 
             <p className="mt-8">
@@ -158,29 +171,35 @@ function AboutUsPage() {
               explore photography through workshops, photowalks, competitions,
               exhibitions, and collaborative projects. We actively document
               cultural festivals, technical events, sports meets, institute
-              ceremonies, and everyday campus life, creating a lasting visual
-              archive for future generations of NITKians.
+              ceremonies, and everyday campus life, creating a{" "}
+              <span className="font-medium text-[#00B9DD]">
+                lasting visual archive
+              </span>{" "}
+              for future generations of NITKians.
             </p>
 
             <p className="mt-8">
-              Guided by our vision of inspiring creativity and excellence,
-              we strive to provide a dynamic platform where photographers can learn,
-              experiment, and showcase their unique perspectives.
+              Guided by our{" "}
+              <span className="font-medium text-[#00B9DD]">
+                vision of inspiring creativity and excellence
+              </span>
+              , we strive to provide a dynamic platform where photographers
+              can learn, experiment, and showcase their unique perspectives.
               Through photography, we aim to capture and celebrate the spirit,
-              diversity, energy, and unforgettable moments that define life at NITK,
-              preserving memories that continue to inspire and connect our community
-              for years to come.
-
+              diversity, energy, and unforgettable moments that define life at
+              NITK, preserving memories that continue to inspire and connect
+              our community for years to come.
             </p>
           </div>
         </section>
 
+        {/* Statistics */}
         <section className="mt-10 md:mt-14">
-          <p className="text-tertiary uppercase text-sm font-semibold tracking-[0.2em]">
+          <p className="text-[#00B9DD] uppercase text-sm font-semibold tracking-[0.2em]">
             Statistics
           </p>
 
-          <h2 className="font-playfair text-primary text-2xl md:text-3xl lg:text-4xl leading-tight mt-4">
+          <h2 className="font-playfair font-semibold text-primary text-2xl md:text-3xl lg:text-4xl leading-tight mt-4">
             Club Statistics
           </h2>
 
@@ -190,17 +209,19 @@ function AboutUsPage() {
                 key={stat.label}
                 label={stat.label}
                 value={stat.value}
+                highlight={stat.highlight}
               />
             ))}
           </div>
         </section>
 
+        {/* Achievements */}
         <section className="mt-10 md:mt-14 pb-20 md:pb-28">
-          <p className="text-tertiary uppercase text-sm font-semibold tracking-[0.2em]">
+          <p className="text-[#00B9DD] uppercase text-sm font-semibold tracking-[0.2em]">
             Achievements
           </p>
 
-          <h2 className="font-playfair text-primary text-2xl md:text-3xl lg:text-4xl leading-tight mt-4">
+          <h2 className="font-playfair font-semibold text-primary text-2xl md:text-3xl lg:text-4xl leading-tight mt-4">
             What We Have Achieved
           </h2>
 
