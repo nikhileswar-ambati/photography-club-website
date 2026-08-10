@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router";
 import Landing from "./landing"
 import About from "./about"
 import Hero from "./hero"
@@ -10,7 +11,6 @@ import axios from "axios";
 export default function HomePage() {
 
     const [events, setEvents] = useState([]);
-
     const specialNotices = ["Recruitment for 2028 batch has begun."]
     const onJoin = (e) => {
         e.preventDefault();
@@ -22,6 +22,7 @@ export default function HomePage() {
         e.preventDefault();
         console.log("Learn more button clicked");
         // redirect to the learn more page
+        window.location.href = "/about";
     }
     
     const getEvents = async () => {

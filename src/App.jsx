@@ -5,10 +5,9 @@ import Events from "./pages/events";
 import EventPage from "./pages/events/eventPage";
 import Blogs from "./pages/blogs";
 import BlogPage from "./pages/blogs/blogPage";
-
 import PhotoReels from "./pages/photoreel";
 import Header from "./components/header";
-
+import AboutUs from "./pages/about_us/aboutus";
 import Footer from "./components/footer";
 import PortfolioPage from "./pages/portfolio/portfolio";
 import IndividualPortfolio from "./pages/portfolio/individualPortfolio";
@@ -25,12 +24,11 @@ export default function App () {
           <div className="pt-[65px]">
             <Routes>
               <Route path="/" element={<HomePage />} />
-
               <Route path="/portfolio" element={<PortfolioLayout />}>
                 <Route index element={<PortfolioPage />} />
                 <Route path=":id" element={<IndividualPortfolio />} />
               </Route>
-
+              <Route path="/about" element={<AboutUs />} />
               <Route path="/photo-reels" element={<PhotoReels />} />
               <Route path="/events" element={<Events />}>
                 <Route path=":id" element={<EventPage />} />
