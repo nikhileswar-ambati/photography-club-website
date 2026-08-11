@@ -1,6 +1,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import coverImage from "./cover3.jpeg";
+import coverImage from "./cover1.jpeg";
 
 function StatCard({ label, value, highlight }) {
   return (
@@ -142,7 +142,7 @@ function AboutUsPage() {
       <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20">
         {/* Who Are We */}
         <section className="mt-10 md:mt-14">
-          <p className="text-[#00B9DD] uppercase text-sm font-semibold tracking-[0.2em]">
+          <p className="text-tertiary uppercase text-sm font-semibold tracking-[0.2em]">
             Who Are We
           </p>
 
@@ -153,9 +153,9 @@ function AboutUsPage() {
           <div className="max-w-5xl mt-8 text-base sm:text-lg leading-7 sm:leading-8 md:leading-9 text-primary font-light">
             <p>
               Established in{" "}
-              <span className="font-medium text-[#00B9DD]">2004</span>, the
+              <span className="font-medium text-red-500">2004</span>, the
               Photography Club of{" "}
-              <span className="font-medium text-[#00B9DD]">
+              <span className="font-medium text-red-500">
                 NITK Surathkal
               </span>{" "}
               is a student-run community dedicated to fostering creativity
@@ -172,7 +172,7 @@ function AboutUsPage() {
               exhibitions, and collaborative projects. We actively document
               cultural festivals, technical events, sports meets, institute
               ceremonies, and everyday campus life, creating a{" "}
-              <span className="font-medium text-[#00B9DD]">
+              <span className="font-medium text-red-500">
                 lasting visual archive
               </span>{" "}
               for future generations of NITKians.
@@ -180,7 +180,7 @@ function AboutUsPage() {
 
             <p className="mt-8">
               Guided by our{" "}
-              <span className="font-medium text-[#00B9DD]">
+              <span className="font-medium text-red-500">
                 vision of inspiring creativity and excellence
               </span>
               , we strive to provide a dynamic platform where photographers
@@ -195,7 +195,7 @@ function AboutUsPage() {
 
         {/* Statistics */}
         <section className="mt-10 md:mt-14">
-          <p className="text-[#00B9DD] uppercase text-sm font-semibold tracking-[0.2em]">
+          <p className="text-tertiary uppercase text-sm font-semibold tracking-[0.2em]">
             Statistics
           </p>
 
@@ -217,7 +217,7 @@ function AboutUsPage() {
 
         {/* Achievements */}
         <section className="mt-10 md:mt-14 pb-20 md:pb-28">
-          <p className="text-[#00B9DD] uppercase text-sm font-semibold tracking-[0.2em]">
+          <p className="text-tertiary uppercase text-sm font-semibold tracking-[0.2em]">
             Achievements
           </p>
 
