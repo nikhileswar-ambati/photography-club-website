@@ -9,10 +9,9 @@ import { navigateSmooth } from "../../utils/helperFunctions";
 const IndividualPortfolio = () => {
   const navigate = useNavigate();
   const { id } = useParams(); // Get the photographer ID from URL params
-  const { teamMembers } = useContext(TabContext); // Get team members from context
+  const { candidates } = useContext(TabContext);
 
-  // Find the photographer by ID
-  const photographer = teamMembers.find((member) => member.id === id);
+const photographer = candidates.find((candidate) => candidate.id === id);
 
   const backToPrevious = () => {
     // navigate(-1) -> gives a choppy transition between pages
