@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { TeamMember } from "./team_member";
 import { TabContext } from "../../context/TabContext";
 import { useNavigate } from "react-router-dom";
-import { navigateSmooth } from "../../utils/helperFunctions";
 
 export function TeamShowcase() {
   const navigate = useNavigate();
@@ -17,9 +16,12 @@ export function TeamShowcase() {
     candidate.name.toLowerCase().includes(searchQuery.toLowerCase()),
   );
 
-  const goToIndividualPortfolio = (id) => {
+  const goToIndividualPortfolio = (candidate) => {
     sessionStorage.setItem("scrollPositionY", window.scrollY);
-    navigateSmooth(navigate, `/portfolio/${id}`);
+
+    navigate("/portfolio/", {
+      state: { photographer: candidate },
+    });
   };
 
   return (
@@ -32,7 +34,7 @@ export function TeamShowcase() {
               name={candidate.name}
               role={candidate.role}
               imageUrl={candidate.avatar}
-              onClick={() => goToIndividualPortfolio(candidate.id)}
+              onClick={() => goToIndividualPortfolio(candidate)}
             />
           ))}
         </div>
