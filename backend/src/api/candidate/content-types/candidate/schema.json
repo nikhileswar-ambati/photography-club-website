@@ -26,16 +26,15 @@
       "required": true
     },
     "role": {
-  "type": "enumeration",
-  "enum": [
-    "Frames",
-    "Grid",
-    "Vivid",
-    "Reel",
-    "Social Media"
-  ],
-  "required": true
-},
+      "type": "enumeration",
+      "enum": [
+        "Frame",
+        "Grid",
+        "Vivid",
+        "Reel",
+        "Social Media"
+      ]
+    },
     "avatar": {
       "type": "media",
       "multiple": false,
@@ -43,6 +42,28 @@
     },
     "linkedin": {
       "type": "string"
+    },
+    "core": {
+      "type": "enumeration",
+      "enum": [
+        "Yes",
+        "No"
+      ],
+      "required": true
+    },
+    "coreRole": {
+      "type": "enumeration",
+      "enum": [
+        "Convenor",
+        "Vice-Convenor",
+        "Head of Operations",
+        "Techincal Head",
+        "Secretary",
+        "Frame Head",
+        "Reel Head",
+        "Vivid Head",
+        "Social Media Head"
+      ]
     }
   }
 }

@@ -443,6 +443,21 @@ export interface ApiCandidateCandidate extends Struct.CollectionTypeSchema {
   attributes: {
     avatar: Schema.Attribute.Media<'images'>;
     bio: Schema.Attribute.Text;
+    core: Schema.Attribute.Enumeration<['Yes', 'No']> &
+      Schema.Attribute.Required;
+    coreRole: Schema.Attribute.Enumeration<
+      [
+        'Convenor',
+        'Vice-Convenor',
+        'Head of Operations',
+        'Techincal Head',
+        'Secretary',
+        'Frame Head',
+        'Reel Head',
+        'Vivid Head',
+        'Social Media Head',
+      ]
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -458,9 +473,8 @@ export interface ApiCandidateCandidate extends Struct.CollectionTypeSchema {
     name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     role: Schema.Attribute.Enumeration<
-      ['Frames', 'Grid', 'Vivid', 'Reel', 'Social Media']
-    > &
-      Schema.Attribute.Required;
+      ['Frame', 'Grid', 'Vivid', 'Reel', 'Social Media']
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

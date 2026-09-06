@@ -5,6 +5,7 @@ import PhotoGrid from "../../components/portfolio/PhotoGrid";
 import UserCard from "../../components/portfolio/UserCard";
 import { TabContext } from "../../context/TabContext";
 import { navigateSmooth } from "../../utils/helperFunctions";
+import { getProfilePosition } from "../../utils/candidateRoles";
 
 const IndividualPortfolio = () => {
   const navigate = useNavigate();
@@ -67,12 +68,13 @@ const IndividualPortfolio = () => {
 
         <UserCard
           avatar={photographer.avatar}
-          role={photographer.role}
+          role={getProfilePosition(photographer)}
           name={photographer.name}
           bio={photographer.bio}
           mail={photographer.mail}
           instagram={photographer.instagram}
           linkedin={photographer.linkedin}
+          core={photographer.core}
         />
 
         <PhotoGrid photographer={photographer} />

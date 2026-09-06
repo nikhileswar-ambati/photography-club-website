@@ -10,7 +10,7 @@ export function TeamMember({ name, role, imageUrl, onClick }) {
         <img
           src={imageUrl}
           alt={`${name}, ${role}`}
-          className="w-full h-[400px] object-cover object-center"
+          className="w-full aspect-square object-cover object-center"
         />
       </div>
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-max">

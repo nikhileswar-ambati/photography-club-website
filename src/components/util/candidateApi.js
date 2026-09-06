@@ -20,6 +20,8 @@ const mapCandidate = (candidate) => ({
   instagram: candidate.instagram || "",
   linkedin: candidate.linkedin || "",
   avatar: getAvatarUrl(candidate.avatar?.url),
+  core: candidate.core || "",
+  coreRole: candidate.coreRole || "",
   photos: [],
 });
 

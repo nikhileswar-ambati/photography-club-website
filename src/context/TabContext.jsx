@@ -6,7 +6,8 @@ export const TabContext = createContext(null);
 export const TabContextProvider = (props) => {
   const navItems = [
     { name: "View all" },
-    { name: "Frames" },
+    { name: "Core" },
+    { name: "Frame" },
     { name: "Grid" },
     { name: "Vivid" },
     { name: "Reel" },
