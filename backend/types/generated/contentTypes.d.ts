@@ -448,6 +448,7 @@ export interface ApiCandidateCandidate extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     email: Schema.Attribute.Email & Schema.Attribute.Required;
     instagram: Schema.Attribute.String;
+    linkedin: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -457,7 +458,7 @@ export interface ApiCandidateCandidate extends Struct.CollectionTypeSchema {
     name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     role: Schema.Attribute.Enumeration<
-      ['Management', 'Design', 'Photography', 'Operations']
+      ['Frames', 'Grid', 'Vivid', 'Reel', 'Social Media']
     > &
       Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;

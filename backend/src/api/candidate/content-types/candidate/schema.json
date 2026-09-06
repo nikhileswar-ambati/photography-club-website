@@ -28,10 +28,11 @@
     "role": {
   "type": "enumeration",
   "enum": [
-    "Management",
-    "Design",
-    "Photography",
-    "Operations"
+    "Frames",
+    "Grid",
+    "Vivid",
+    "Reel",
+    "Social Media"
   ],
   "required": true
 },
@@ -39,6 +40,9 @@
       "type": "media",
       "multiple": false,
       "allowedTypes": ["images"]
+    },
+    "linkedin": {
+      "type": "string"
     }
   }
 }

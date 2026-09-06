@@ -18,6 +18,7 @@ const mapCandidate = (candidate) => ({
   bio: candidate.bio || "",
   mail: candidate.email || "",
   instagram: candidate.instagram || "",
+  linkedin: candidate.linkedin || "",
   avatar: getAvatarUrl(candidate.avatar?.url),
   photos: [],
 });

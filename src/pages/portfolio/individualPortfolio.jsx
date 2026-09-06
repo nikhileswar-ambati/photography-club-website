@@ -72,6 +72,7 @@ const IndividualPortfolio = () => {
           bio={photographer.bio}
           mail={photographer.mail}
           instagram={photographer.instagram}
+          linkedin={photographer.linkedin}
         />
 
         <PhotoGrid photographer={photographer} />

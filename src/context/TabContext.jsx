@@ -6,10 +6,11 @@ export const TabContext = createContext(null);
 export const TabContextProvider = (props) => {
   const navItems = [
     { name: "View all" },
-    { name: "Management" },
-    { name: "Design" },
-    { name: "Photography" },
-    { name: "Operations" },
+    { name: "Frames" },
+    { name: "Grid" },
+    { name: "Vivid" },
+    { name: "Reel" },
+    { name: "Social Media" },
   ];
 
   const [candidates, setCandidates] = useState([]);
