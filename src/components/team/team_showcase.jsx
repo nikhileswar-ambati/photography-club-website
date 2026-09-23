@@ -28,6 +28,17 @@ const sortCoreMembers = (members) =>
       (bIndex === -1 ? CORE_ROLE_ORDER.length : bIndex);
   });
 
+const isHighlightedMember = (candidate, activeItem) => {
+  if (activeItem === "Core") {
+    return ["Convenor", "Vice-Convenor"].includes(candidate.coreRole);
+  }
+
+  return (
+    candidate.core === "Yes" &&
+    candidate.coreRole === `${activeItem} Head`
+  );
+};
+
 export function TeamShowcase() {
   const navigate = useNavigate();
   const { candidates, activeItem, searchQuery } = useContext(TabContext);
@@ -52,9 +63,22 @@ export function TeamShowcase() {
   const goToIndividualPortfolio = (candidate) => {
     sessionStorage.setItem("scrollPositionY", window.scrollY);
 
-    navigate("/portfolio/", {
-      state: { photographer: candidate },
-    });
+    const openProfile = () => {
+      navigate("/portfolio/", {
+        state: { photographer: candidate },
+      });
+
+      window.requestAnimationFrame(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+      });
+    };
+
+    if (document.startViewTransition) {
+      document.startViewTransition(openProfile);
+      return;
+    }
+
+    openProfile();
   };
 
   return (
@@ -68,6 +92,7 @@ export function TeamShowcase() {
                 name={candidate.name}
                 role={getTeamCardLabel(candidate)}
                 imageUrl={candidate.avatar}
+                isHighlighted={isHighlightedMember(candidate, activeItem)}
                 onClick={() => goToIndividualPortfolio(candidate)}
               />
             ))}
